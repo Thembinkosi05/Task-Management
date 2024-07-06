@@ -78,6 +78,7 @@ public class TaskDao {
     }
 
     public void Exit(){
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.close();
+         HibernateUtil.getSessionFactory().close();
     }
+    
+}

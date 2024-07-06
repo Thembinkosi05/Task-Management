@@ -6,6 +6,7 @@ import com.taskmanager.model.Task;
 import java.util.List;
 
 public class TaskService {
+
     private TaskDao taskDao;
 
     public TaskService() {
@@ -30,5 +31,10 @@ public class TaskService {
 
     public void deleteTask(int id) {
         taskDao.deleteTask(id);
+    }
+
+    public void Exit(){
+        taskDao.Exit();
+        System.exit(0);
     }
 }

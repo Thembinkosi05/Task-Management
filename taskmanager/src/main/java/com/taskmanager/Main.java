@@ -16,9 +16,7 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
     private static TaskService taskService = new  TaskService();
     public static void main(String[] args) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-
+        
         Menu mainMenu = new Menu("Task Management System", null);
 
         /*add task to the main menu */
@@ -40,7 +38,7 @@ public class Main {
                     String description = scanner.nextLine();
 
                     System.out.print("Enter task due date (YYYY-MM-DD): ");
-                    Date dueDate = Date.valueOf(scanner.nextLine());
+                   // Date dueDate = Date.valueOf(scanner.nextLine());
 
                     System.out.print("Enter task priority (LOW, MEDIUM, HIGH): ");
                     Task.Priority priority = Task.Priority.valueOf(scanner.nextLine().toUpperCase());
@@ -48,8 +46,8 @@ public class Main {
                     task.setTitle(title);
                     task.setDescription(description);
                     task.setPriority(priority);
-                    task.setDueDate(dueDate);
-                    
+                   // task.setDueDate(dueDate);
+                    taskService.saveTask(task);
                     
                 System.out.println("Add task added to the main menu");
                 System.out.println();
@@ -65,7 +63,11 @@ public class Main {
 
             @Override
             public void run() {
-            
+                for (Task taskstring : taskService.getAllTasks()) {
+                    System.out.println(taskstring);
+                    
+                }
+
             }
         });
         
@@ -104,13 +106,10 @@ public class Main {
 
             @Override
             public void run() {
-                session.close();
+                taskService.Exit();
             }
         });
-        
-        transaction.commit();
-        
-
-        System.out.println("Task saved successfully!");
-    }
+    
+        mainMenu.run();
+        }
 }

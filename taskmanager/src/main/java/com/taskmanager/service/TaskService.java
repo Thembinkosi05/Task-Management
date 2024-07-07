@@ -25,14 +25,18 @@ public class TaskService {
         return taskDao.getTaskById(id);
     }
 
-    public List<Task> getAllTasks() {
-        return taskDao.getAllTasks();
+    public List<Task> getAllTasks(int userId) {
+        return taskDao.getAllTasks(userId);
     }
 
     public void deleteTask(int id) {
         taskDao.deleteTask(id);
     }
 
+    public List<Task> searchTasks(String keyword) {
+        return taskDao.searchTasks(keyword);
+    }
+    
     public void Exit(){
         taskDao.Exit();
         System.exit(0);

@@ -53,9 +53,10 @@ public class TaskDao {
         return task;
     }
 
-    public List<Task> getAllTasks() {
+    public List<Task> getAllTasks(int userId) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("from Task", Task.class).list();
+            return session.createQuery("from Task where = :userId", Task.class)
+            .setParameter("userId", userId).list();
         }
     }
 
@@ -74,6 +75,14 @@ public class TaskDao {
                 transaction.rollback();
             }
             e.printStackTrace();
+        }
+    }
+
+    public List<Task> searchTasks(String keyword) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("FROM Task WHERE title LIKE :keyword OR description LIKE :keyword", Task.class)
+                    .setParameter("keyword", "%" + keyword + "%")
+                    .list();
         }
     }
 

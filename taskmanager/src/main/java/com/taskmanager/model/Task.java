@@ -1,7 +1,7 @@
 package com.taskmanager.model;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name = "tasks")
@@ -77,5 +77,21 @@ public class Task {
 
     public enum Status {
         PENDING, COMPLETED
+    }
+
+    @Column(name = "userId")
+    private int userId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return " "+title+"   "+description+"   "+priority.toString()+"  "+status+"  "+"by "+dueDate;
     }
 }

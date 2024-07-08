@@ -2,7 +2,7 @@
 Overview
 This Task Management System is a command-line application built using Java, Hibernate, and MySQL. It allows users to manage tasks with functionalities including adding, viewing, updating, and deleting tasks. Additionally, it features basic user authentication and task search capabilities.
 
-#Features
+Features
 User Registration and Login: Secure user registration and login system.
 Task Management: Add, view, update, and delete tasks.
 Task Search: Search tasks based on keywords.
@@ -12,7 +12,7 @@ Java: The primary programming language.
 Hibernate: ORM tool for database operations.
 MySQL: Database to store user and task information.
 
-#Getting Started
+Getting Started
 Prerequisites
 Java 8/11
 Maven

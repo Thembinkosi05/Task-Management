@@ -21,10 +21,9 @@ Setup
 Clone the repository:
 bash
 Copy code
-git clone https://github.com/thembinkosi05/Task-Manager.git
+git clone https://github.com/thembinkosi5/Task-Manager.git
 cd task-manager
-
-#Configure the database:
+Configure the database:
 
 Create a MySQL database and update the hibernate.cfg.xml file with your database credentials.
 
@@ -42,7 +41,7 @@ Copy code
     </session-factory>
 </hibernate-configuration>
 Build the project:
-bash
+
 Copy code
 mvn clean install
 Run the application:
@@ -76,6 +75,8 @@ Enter a keyword to search for tasks.
 Contributing
 Feel free to fork this repository and make your own changes. Contributions are welcome!
 
+License
+This project is licensed under the MIT License.
 
 Acknowledgements
 Java

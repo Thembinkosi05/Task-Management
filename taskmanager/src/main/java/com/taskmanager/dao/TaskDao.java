@@ -16,9 +16,7 @@ public class TaskDao {
             session.save(task);
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
+           
             e.printStackTrace();
         }
     }

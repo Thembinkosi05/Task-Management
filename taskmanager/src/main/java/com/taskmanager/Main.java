@@ -34,7 +34,6 @@ public class Main {
                     break;
                 case 2:
                     if (loginUser()) {
-                        runTaskManager();
                     }
                     break;
                 case 3:
@@ -58,6 +57,8 @@ public class Main {
         userDao.saveUser(user);
         loggedInUser = user;
         System.out.println("User registered successfully!");
+        System.out.println();
+        runTaskManager();
     }
     private static boolean loginUser() {
         System.out.print("Enter username: ");

@@ -31,9 +31,6 @@ public class UserDao {
                     .uniqueResult();
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
             e.printStackTrace();
         }
         return user;

@@ -61,7 +61,7 @@ public class Task {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private Status status;
+    private Status status = Status.PENDING;
 
     public void setStatus(Status status) {
         this.status = status;
@@ -79,8 +79,15 @@ public class Task {
         PENDING, COMPLETED
     }
 
-    @Column(name = "userId")
+    @ManyToOne
+	@JoinColumn(name="user_id", nullable=false)
+    private Task task;
+
     private int userId;
+
+
+    public Task(){}
+
 
     public int getUserId() {
         return userId;

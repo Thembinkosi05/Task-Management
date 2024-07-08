@@ -1,5 +1,7 @@
 package com.taskmanager.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,10 +9,10 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int usedId;
 
     public int getId() {
-        return id;
+        return usedId;
     }
 
     @Column(name = "username", nullable = false, unique = true)
@@ -34,4 +36,7 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @OneToMany(mappedBy="task")
+	private Set<Task> tasks;
 }
